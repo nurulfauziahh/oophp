@@ -1,27 +1,33 @@
 <?php 
 	
-	define('NAMA', 'Sandhika Galih');
-	echo NAMA;
+	// define('NAMA', 'Sandhika Galih');
+	// echo NAMA;
 
-	echo "<br>";
+	// echo "<br>";
 
-	const UMUR = 32;
-	echo UMUR;
+	// const UMUR = 32;
+	// echo UMUR;
 
+	// Class Coba{
+	// 	const NAMA = 'Sandhika';
 
+	// }
 
-	Class Coba{
-		const NAMA = 'Sandhika';
+	// echo Coba::NAMA;
 
-	}
+	// echo __FILE__;
 
-	echo Coba::NAMA;
+	// function coba(){
+	// 	return __FUNCTION__;
 
-	echo __FILE__;
+	// }
 
-	function coba(){
-		return __FUNCTION__;
+	// echo coba();
 
-	}
+class Coba{
+	public $kelas = __CLASS__;
+}
 
-	echo coba();
+$obj = new Coba;
+echo $obj->kelas;
+ ?>
