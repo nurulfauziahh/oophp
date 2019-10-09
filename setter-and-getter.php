@@ -1,17 +1,15 @@
 <?php 
 
-// jualan produk
+// Jualan produk
 // komik 
 // game
 class Produk{//sebuah class
-	public  $judul,
+	private $judul,
 			$penulis,
-			$penerbit;
-
-
-		protected $diskon = 0;
-
-	private $harga;
+			$penerbit,
+			 $harga,
+			 $diskon = 0;
+	
 			
 
 	public function __construct($judul="judul",$penulis="penulis",$penerbit="penerbit",$harga=0) {
@@ -21,10 +19,48 @@ class Produk{//sebuah class
 				$this->harga =$harga;
 			}
 
+	public function setJudul($judul){
+			$this->judul= $judul;
+	}
+
+	public function getJudul(){
+		return $this->judul;
+	}
+
+	public function setpenulis($penulis){
+		$this->penulis = $penulis;
+
+	}
+
+	public function getpenulis(){
+			return $this->penulis;
+	}
+
+	public function setpenerbit($penerbit){
+		$this->penerbit = $penerbit;
+	}
+
+	public function getpenerbit(){
+		return $this->penerbit;
+	}	
+
+
+	public function setDiskon($diskon){
+				$this->diskon = $diskon;
+	}
+
+
+	public function getDiskon(){
+		return $this->diskon;
+	}
+
+	public function setHarga($harga){
+		$this->harga = $harga;
+	}
 
 	public function getHarga(){
 			return $this->harga - ($this->harga * $this->diskon / 100 );
-		}
+	}
 
 	public function getLabel(){
 		return "$this->penulis,$this->penerbit";
@@ -62,12 +98,9 @@ class Produk{//sebuah class
 			$this->waktuMain = $waktuMain;
 		}
 
-		public function setDiskon($diskon){
-				$this->diskon = $diskon;
-			}
 
 		public function getInfoProduk(){
-			$str = "Game : " . parent::getInfoProduk(). "  ~ {$this->waktuMain} Jam.";
+			$str = "Game : " . parent::getInfoProduk() . "  ~ {$this->waktuMain} Jam.";
 			return $str;
 	}
 
@@ -80,9 +113,6 @@ class Produk{//sebuah class
 	}
 
 
-
-
-
 	$produk1 = new Komik("Naruto","Masashi Kishimoto","Shonen Jump",30000,100);
 	$produk2 = new Game("Unceharted","Neil Druckmann","Sony Computer",250000,50);
 	
@@ -92,10 +122,12 @@ class Produk{//sebuah class
 	echo "<hr>";
 
 	$produk2->setDiskon(50);
-	
-	
 	echo $produk2->getHarga();
+	echo "<hr>";
+	 $produk1->setpenulis("sandhika Galih");
+	echo $produk1->getpenulis();
 
-	// Komik : Narotu | Mashashi Kishimoto, Shonen Jump (Rp. 30000) - 100 halaman.
-	// Game : uncharted | neil Druckman ,Sony Computer (Rp. 250000) - 50 jam.
+
+
+	
 ?>
